@@ -1,0 +1,37 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  // previewFeatures = ["deno"]
+  engineType = "library"
+  output = "../generated/client"
+}
+
+datasource db {
+  // provider = "postgresql"
+  provider =  "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Dinosaur {
+  id          Int     @id @default(autoincrement())
+  name        String  @unique
+  description String
+}
+
+model Log {
+  id      Int    @id @default(autoincrement())
+  level   Level
+  message String
+  meta    Json
+}
+
+enum Level {
+  Info
+  Warn
+  Error
+}

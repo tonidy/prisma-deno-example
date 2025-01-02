@@ -1,0 +1,9 @@
+{
+  "tasks": {
+    "dev": "deno run -A --unstable-detect-cjs --watch main.ts",
+    "seed": "deno run -A --env --unstable-detect-cjs prisma/seed.ts"
+  },
+  "imports": {
+  },
+   "nodeModulesDir": "auto"
+}
